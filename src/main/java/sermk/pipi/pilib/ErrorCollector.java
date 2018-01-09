@@ -1,5 +1,7 @@
 package sermk.pipi.pilib;
 
+import java.util.Arrays;
+
 /**
  * Created by echormonov on 09.01.18.
  */
@@ -18,7 +20,16 @@ public class ErrorCollector {
         return error;
     }
 
-    public String subjError(final String TAG, final String action){
+    public static String subjError(final String TAG, final String action){
         return TAG + SUBJ_ERROR_OPERATION + action;
+    }
+
+    public static String getStackTraceString(Throwable e){
+        //return Arrays.toString(e.getStackTrace());
+        String trace = e.toString() + "\n";
+        for (StackTraceElement e1 : e.getStackTrace()) {
+            trace += "\t at " + e1.toString() + "\n";
+        }
+        return trace;
     }
 }
