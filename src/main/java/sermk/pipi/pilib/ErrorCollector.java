@@ -20,6 +20,8 @@ public class ErrorCollector {
         return error;
     }
 
+    public void clear(){error = "";}
+
     public static String subjError(final String TAG, final String action){
         return TAG + SUBJ_ERROR_OPERATION + action;
     }

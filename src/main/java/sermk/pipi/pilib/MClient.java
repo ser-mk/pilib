@@ -27,6 +27,12 @@ public class MClient {
 
     public static final byte[] EMPTY_BYTES = new byte[0];
     static final String[] EMPTY_FILENAMES = new String[0];
+    public static final String EMPTY_DATA = new String();
+
+    public static boolean sendMessage(Context context, final String subject,
+                                      final String data){
+        return sendMessage(context,subject,data,EMPTY_BYTES);
+    }
 
     public static boolean sendMessage(Context context, final String subject,
                                       final String data,
