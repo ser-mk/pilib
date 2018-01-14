@@ -36,7 +36,7 @@ public class PiBind implements ServiceConnection {
     public static final int POSITION_UNDEFINED = -2;
 
     public static final int POSITION_MIN = 0;
-    public static final int POSITION_MAX = 255;
+    public static final int POSITION_MAX = 1000;
 
     public int getPosition(){
         if(state == BindState.BINDED && mIRemoteService != null){
