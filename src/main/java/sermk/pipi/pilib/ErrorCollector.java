@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class ErrorCollector {
 
-    public String error = "";
+    public String error = NO_ERROR;
 
     public static String NO_ERROR = new String();
 
@@ -18,6 +18,11 @@ public class ErrorCollector {
     public String addError(final String err){
         error += SEPARATOR + err;
         return error;
+    }
+
+    public boolean hasError(){
+        if(NO_ERROR.equals(error)) return false;
+        return true;
     }
 
     public void clear(){error = "";}
