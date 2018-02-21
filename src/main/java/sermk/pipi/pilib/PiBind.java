@@ -32,8 +32,10 @@ public class PiBind implements ServiceConnection {
         Log.v(TAG, "bind to service " + packageName + " " + className + " is " + ret);
     }
 
-    public static final int CONNECTED_PROBLEM = -1;
-    public static final int POSITION_UNDEFINED = -2;
+
+    public static final int POSITION_UNDEFINED = -1;
+    public static final int CONNECTED_PROBLEM = -2;
+    public static final int CLOSE_GAME = -3;
 
     public static final int POSITION_MIN = 0;
     public static final int POSITION_MAX = 1000;
