@@ -45,11 +45,11 @@ public class MClient {
 
         final ComponentName c = context.startService(intent);
         if(c == null){
-            Log.w(TAG, "sent FAILED!");
+            Log.w(TAG, "sent FAILED \n subj :" + subject + "\n" + data);
             return false;
-        } else {
-            Log.v(TAG, "sent success");
         }
+
+        Log.v(TAG, "sent success \n subj :" + subject + "\n" + data);
         return true;
     }
 
