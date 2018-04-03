@@ -17,7 +17,7 @@ public class MClient {
     private static final String TAG = "MClient";
 
     static String NAME_MC_PACKAGE(){return "sermk.pipi.mclient";}
-    static String NAME_MCS_SERVICE(){return "sermk.pipi.mlib.MTransmitterService";}
+    static String NAME_MCS_SERVICE(){return "sermk.pipi.mclient.MTransmitterService";}
 
     private static Intent tempIntent(){
         Intent intent = new Intent();
