@@ -21,9 +21,13 @@ android {
     }
 
 }
-/*
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.12'
+
+if("$gradle.gradleVersion" > 3){
+    println " gradle.gradleVersion $gradle.gradleVersion"
+    dependencies {
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        testImplementation 'junit:junit:4.12'
+    }
+} else {
+    println "libgdx project((( $gradle.gradleVersion"
 }
-*/
