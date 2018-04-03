@@ -13,14 +13,12 @@ import java.net.InetAddress;
 public class ReciverSkeleton {
 
     public static class ReciverVarible{
-        public ErrorCollector EC;
         public String action;
         public String content;
         public byte[] array;
     }
 
     static public ReciverVarible parseIntent(Intent intent, String TAG){
-        ErrorCollector EC = new ErrorCollector();
         Log.v(TAG, "inent: " + intent.toString());
 
         String action = "";
@@ -53,7 +51,6 @@ public class ReciverSkeleton {
 
         final ReciverVarible rv = new ReciverVarible();
 
-        rv.EC = EC;
         rv.action = action;
         rv.content = content;
         rv.array = array;
