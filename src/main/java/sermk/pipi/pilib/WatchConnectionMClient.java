@@ -60,8 +60,8 @@ public class WatchConnectionMClient {
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            final ReciverSkeleton.ReciverVarible rv
-                    = ReciverSkeleton.parseIntent(intent, TAG);
+            final UniversalReciver.ReciverVarible rv
+                    = UniversalReciver.parseIntent(intent, TAG);
 
             if(!CommandCollection.ACTION_RECIEVER_MCLIENT_CONNECTION_RESULT.equals(rv.action)){
                 MClient.sendMessage(context,

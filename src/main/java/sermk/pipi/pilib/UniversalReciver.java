@@ -10,7 +10,7 @@ import java.net.InetAddress;
  * Created by ser on 03.04.18.
  */
 
-public class ReciverSkeleton {
+public class UniversalReciver {
 
     public static class ReciverVarible{
         public String action;
