@@ -24,7 +24,7 @@ public class WatchConnectionMClient {
         TimeFineUnsuccessableConnection = TimeFine;
     }
 
-    public void init(Context context){
+    public void initReciverForTest(Context context){
         final WatchMCConnectionReciever br = new WatchMCConnectionReciever();
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         filter.addAction(CommandCollection.ACTION_RECIEVER_MCLIENT_CONNECTION_RESULT);
