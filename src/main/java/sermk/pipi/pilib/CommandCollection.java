@@ -12,6 +12,7 @@ public class CommandCollection {
     public static final String ACTION_RECIVER_INSTALL_PACKAGE = "INSTALL_PACKAGE";
     public static final String ACTION_RECIVER_REMOVE_PACKAGE = "REMOVE_PACKAGE";
     public static final String ACTION_RECIVER_SET_PI_STATUS ="SET_PI_STATUS";
+    public static final String ACTION_RECIVER_CLEAR_CAPTURE_FRAME_INTERVAL ="ACTION_RECIVER_CLEAR_CAPTURE_FRAME_INTERVAL";
 
     public static final String ACTION_RECIVER_PIBALL_GET_SETTINGS ="PIBALL_GET_SETTINGS";
     public static final String ACTION_RECIVER_PIBALL_SET_SETTINGS ="PIBALL_SET_SETTINGS";
