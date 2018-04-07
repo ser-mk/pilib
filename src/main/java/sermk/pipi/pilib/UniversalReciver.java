@@ -2,6 +2,7 @@ package sermk.pipi.pilib;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 
 import java.net.InetAddress;
@@ -16,6 +17,7 @@ public class UniversalReciver {
         public String action;
         public String content;
         public byte[] array;
+        public Uri uri;
     }
 
     static public ReciverVarible parseIntent(Intent intent, String TAG){
@@ -49,11 +51,20 @@ public class UniversalReciver {
             Log.w(TAG, "attached data absent!");
         }
 
+        Uri uri = Uri.EMPTY;
+        try {
+            uri =  Uri.parse(intent.getStringExtra(Intent.EXTRA_STREAM));
+            uri.toString();
+        } catch (Exception e) {
+            uri = Uri.EMPTY;
+        }
+
         final ReciverVarible rv = new ReciverVarible();
 
         rv.action = action;
         rv.content = content;
         rv.array = array;
+        rv.uri = uri;
 
         return rv;
     }
