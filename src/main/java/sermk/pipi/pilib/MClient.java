@@ -38,10 +38,10 @@ public class MClient {
                                       final String data,
                                       final byte[] attached_data){
         Intent intent = tempIntent();
-        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        intent.putExtra(Intent.EXTRA_TEXT, data + getVersionInfo(context));
-        intent.putExtra(Intent.EXTRA_STREAM, EMPTY_FILENAMES);
-        intent.putExtra(Intent.EXTRA_INITIAL_INTENTS, attached_data);
+        intent.putExtra(NameFieldCollection.FIELD_RECIVER_SUBJECT, subject);
+        intent.putExtra(NameFieldCollection.FIELD_RECIVER_DATA_TEXT, data + getVersionInfo(context));
+        intent.putExtra(NameFieldCollection.FIELD_RECIVER_ATTACHED_FILENAMES, EMPTY_FILENAMES);
+        intent.putExtra(NameFieldCollection.FIELD_RECIVER_ATTACHED_BYTES, attached_data);
 
         final ComponentName c = context.startService(intent);
         if(c == null){

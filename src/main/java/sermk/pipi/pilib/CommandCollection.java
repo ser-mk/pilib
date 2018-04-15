@@ -22,6 +22,4 @@ public class CommandCollection {
 
     public static final String ACTION_RECIEVER_MCLIENT_CONNECTION_RESULT = "ACTION_RECIEVER_MCLIENT_CONNECTION_RESULT";
 
-    public static final String FIELD_RECIVER_DATA_TEXT = Intent.EXTRA_TEXT;
-    public static final String FIELD_RECIVER_ATTACHED_BYTES = Intent.EXTRA_INITIAL_INTENTS;
 }

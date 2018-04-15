@@ -24,7 +24,7 @@ public class ProblemStatusAPI {
         Intent intent = new Intent(CommandCollection.ACTION_RECIVER_SET_PI_STATUS);
 
         Log.w(TAG_CONTEXT, "set status " + problem);
-        intent.putExtra(CommandCollection.FIELD_RECIVER_DATA_TEXT,problem);
+        intent.putExtra(NameFieldCollection.FIELD_RECIVER_DATA_TEXT,problem);
         context.sendBroadcast(intent);
     }
 
