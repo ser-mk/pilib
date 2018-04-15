@@ -34,6 +34,13 @@ public class MClient {
         return sendMessage(context,subject,data,EMPTY_BYTES);
     }
 
+    public static boolean sendJsonSettings(Context context,final String json){
+        return sendMessage(context,
+                CommandCollection.ACTION_RECIVER_FOR_ALL_QUERY_SETTINGS
+                        + "|" + context.getPackageName(),
+                json,EMPTY_BYTES);
+    }
+
     public static boolean sendMessage(Context context, final String subject,
                                       final String data,
                                       final byte[] attached_data){
