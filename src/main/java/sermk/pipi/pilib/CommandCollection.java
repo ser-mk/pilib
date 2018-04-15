@@ -1,7 +1,5 @@
 package sermk.pipi.pilib;
 
-import android.content.Intent;
-
 /**
  * Created by echormonov on 10.01.18.
  */
@@ -11,6 +9,10 @@ public class CommandCollection {
     public static final String ACTION_RECIVER_PILAUNCHER_SAVE_SETTINGS = "ACTION_RECIVER_PILAUNCHER_SAVE_SETTINGS";
     public static final String ACTION_RECIVER_INSTALL_PACKAGE = "INSTALL_PACKAGE";
     public static final String ACTION_RECIVER_REMOVE_PACKAGE = "REMOVE_PACKAGE";
+
+    public static final String ACTION_RECIVER_DPC_SET_SETTINGS = "ACTION_RECIVER_DPC_SET_SETTINGS";
+    public static final String ACTION_RECIVER_DPC_SAVE_SETTINGS = "ACTION_RECIVER_DPC_SAVE_SETTINGS";
+
     public static final String ACTION_RECIVER_SET_PI_STATUS ="SET_PI_STATUS";
     public static final String ACTION_RECIVER_CLEAR_CAPTURE_FRAME_INTERVAL ="ACTION_RECIVER_CLEAR_CAPTURE_FRAME_INTERVAL";
 
