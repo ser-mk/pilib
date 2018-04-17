@@ -16,4 +16,10 @@ public class NameFieldCollection {
     public static final String FIELD_RECIVER_ATTACHED_BYTES = Intent.EXTRA_INITIAL_INTENTS;
     public static final String FIELD_RECIVER_ATTACHED_FILENAMES = Intent.EXTRA_STREAM;
 
+    public static final String[] DEFAULT_WHITE_LIST_APPS = new String[]{
+            "sermk.pipi.mclient",
+            "com.afwsamples.testdpc",
+            "sermk.pipi.pilauncher",
+            "ser.pipi.piball",
+    };
 }
