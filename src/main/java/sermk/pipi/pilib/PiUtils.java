@@ -27,6 +27,13 @@ public class PiUtils {
         mSettings.edit().putString(NameFieldCollection.FIELD_JSON_SETTINGS, json).apply();
     }
 
+    static public void clearJson(Context context){
+        final SharedPreferences mSettings =
+            context.getSharedPreferences(
+                NameFieldCollection.SHARED_PREF_NAME_FILE, Context.MODE_PRIVATE);
+        mSettings.edit().clear().apply();
+    }
+
 
     static public <T> boolean checkHasNullPublicField(T tmp, Class<T> clazz){
         if(tmp == null){
