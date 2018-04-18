@@ -22,4 +22,8 @@ public class NameFieldCollection {
             "sermk.pipi.pilauncher",
             "ser.pipi.piball",
     };
+
+    public static String errSaveSettings(boolean success){
+        return success ? ErrorCollector.NO_ERROR : "error save settings";
+    }
 }
