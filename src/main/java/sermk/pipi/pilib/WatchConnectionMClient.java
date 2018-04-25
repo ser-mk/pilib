@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 
 import java.util.Date;
@@ -19,9 +20,25 @@ public class WatchConnectionMClient {
     private static long lastSuccessConnectionDate = 0;
     private static long  TimeFineUnsuccessableConnection = 0;
 
-    public WatchConnectionMClient(long TIMEOUT, long TimeFine) {
+    private static final String NAME_FILE = "WatchConnectionMClient";
+    private static final String NAME_VAR = "lastSuccessConnectionDate";
+
+    private static long getLastSuccessConnectionDate(Context context){
+        final SharedPreferences settings = context.
+            getSharedPreferences(NAME_FILE,Context.MODE_PRIVATE);
+        return settings.getLong(NAME_VAR,new Date().getTime());
+    }
+
+    private static void setLastSuccessConnectionDate(Context context){
+        final SharedPreferences settings = context.
+            getSharedPreferences(NAME_FILE,Context.MODE_PRIVATE);
+        settings.edit().putLong(NAME_VAR,new Date().getTime()).apply();
+    }
+
+    public WatchConnectionMClient(Context context, long TIMEOUT, long TimeFine) {
         this.TIMEOUT = TIMEOUT;
         TimeFineUnsuccessableConnection = TimeFine;
+        lastSuccessConnectionDate = getLastSuccessConnectionDate(context);
     }
 
     public void initReciverForTest(Context context){
@@ -37,15 +54,7 @@ public class WatchConnectionMClient {
 
         return delta > TIMEOUT;
     }
-
-    static void markConnectionsResult(boolean succes){
-        if(succes) {
-            lastSuccessConnectionDate = new Date().getTime();
-        } else {
-            lastSuccessConnectionDate -= TimeFineUnsuccessableConnection;
-        }
-    }
-
+    
     static final public String SUCCES = "SUCCES";
 
     public static void sendMCConnectionResult(Context context, String result){
@@ -69,7 +78,12 @@ public class WatchConnectionMClient {
                 return;
             }
 
-            markConnectionsResult(rv.content.equals(SUCCES));
+            if(rv.content.equals(SUCCES)) {
+                lastSuccessConnectionDate = new Date().getTime();
+                setLastSuccessConnectionDate(context);
+            } else {
+                lastSuccessConnectionDate -= TimeFineUnsuccessableConnection;
+            }
         }
     }
 }
