@@ -10,9 +10,9 @@ import android.util.Log;
  * Created by echormonov on 26.12.17.
  */
 
-public class GameRunner {
+public class AppRunner {
 
-    private final static String TAG = "GameRunner";
+    private final static String TAG = "AppRunner";
 
     private static final int IF_ACTIVITY_EXIST = 1;
 
@@ -23,21 +23,20 @@ public class GameRunner {
         );
     }
 
-    public static boolean run(Activity act, final String packageName){
+    public static boolean run(Activity act, final String packageName, final String activityName){
 
         Log.v(TAG, packageName);
         PackageManager manager = act.getPackageManager();
 
-            Intent intent = manager.getLaunchIntentForPackage(packageName);
-            if (intent == null) {
-                Log.w(TAG,"game not found!(");
-                return false;
-            }
-            intent.addCategory(Intent.CATEGORY_LAUNCHER);
-            intent.setFlags(0);
-
+        Intent intent = new Intent();
+        intent.setClassName(packageName, activityName);
+        /*
+        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+        intent.setFlags(0);
+        */
         try {
-            act.startActivityForResult(intent, IF_ACTIVITY_EXIST);
+            //act.startActivityForResult(intent, IF_ACTIVITY_EXIST);
+            act.startActivity(intent);
             return true;
         } catch (ActivityNotFoundException e) {
             e.printStackTrace();
