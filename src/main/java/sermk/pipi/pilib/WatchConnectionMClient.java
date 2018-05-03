@@ -26,7 +26,7 @@ public class WatchConnectionMClient {
     private static long getLastSuccessConnectionDate(Context context){
         final SharedPreferences settings = context.
             getSharedPreferences(NAME_FILE,Context.MODE_PRIVATE);
-        return settings.getLong(NAME_VAR,new Date().getTime());
+        return settings.getLong(NAME_VAR,0);
     }
 
     private static void setLastSuccessConnectionDate(Context context){
