@@ -1,5 +1,6 @@
 package sermk.pipi.pilib;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -18,11 +19,19 @@ public class MClient {
 
     static String NAME_MC_PACKAGE(){return "sermk.pipi.mclient";}
     static String NAME_MCS_SERVICE(){return "sermk.pipi.mclient.MTransmitterService";}
+    final static String NAME_MC_ACTIVITY = "sermk.pipi.mclient.LoginActivity";
 
     private static Intent tempIntent(){
         Intent intent = new Intent();
         intent.setClassName(NAME_MC_PACKAGE(), NAME_MCS_SERVICE());
         return intent;
+    }
+
+    public static boolean runMC(Activity activity){
+        if (!AppRunner.run(activity,NAME_MC_PACKAGE(),NAME_MC_ACTIVITY)){
+            return false;
+        }
+        return true;
     }
 
     public static final byte[] EMPTY_BYTES = new byte[0];
